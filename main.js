@@ -1,5 +1,11 @@
 console.log("Hello, world! -- dom-manipulation");
 
+function addListItem(input, target) {
+  let listItem = document.createElement('li');
+  listItem.innerHTML = input;
+  target.appendChild(listItem);
+}
+
 document.addEventListener('DOMContentLoaded', function() {
   let displayPromptButton = document.getElementById('displayPromptButton');
   let viewInputColor = document.getElementById('color');
@@ -9,8 +15,6 @@ document.addEventListener('DOMContentLoaded', function() {
     let input = prompt('What is your favorite color?');
     console.log('input is ', input);
     viewInputColor.innerHTML = "Your favorite color is: " + input;
-    let listItem = document.createElement('li');
-    listItem.innerHTML = input;
-    viewColorList.appendChild(listItem);
+    addListItem(input, viewColorList)
   });
 });
